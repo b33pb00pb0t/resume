@@ -18,7 +18,14 @@
 \usepackage{fancyhdr}
 \usepackage[english]{babel}
 \usepackage{tabularx}
-\input{glyphtounicode}
+\usepackage{fontawesome5}
+\usepackage{iftex}
+% Load glyphtounicode only when using pdfTeX (avoids \pdfglyphtounicode error with XeTeX)
+\ifPDFTeX
+  \input{glyphtounicode}
+\fi
+
+% (Reverted fontspec/XeLaTeX changes — using default pdfLaTeX fonts)
 
 
 %----------FONT OPTIONS----------
@@ -105,29 +112,74 @@
 
 \begin{document}
 
-%----------HEADING----------
-% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-%   \textbf{\href{http://sourabhbajaj.com/}{\Large Sourabh Bajaj}} & Email : \href{mailto:sourabh@sourabhbajaj.com}{sourabh@sourabhbajaj.com}\\
-%   \href{http://sourabhbajaj.com/}{http://www.sourabhbajaj.com} & Mobile : +1-123-456-7890 \\
-% \end{tabular*}
 
-\begin{center}
-    \textbf{\Huge \scshape Jake Ryan} \\ \vspace{1pt}
-    \small 123-456-7890 $|$ \href{mailto:x@x.com}{\underline{jake@su.edu}} $|$ 
-    \href{https://linkedin.com/in/...}{\underline{linkedin.com/in/jake}} $|$
-    \href{https://github.com/...}{\underline{github.com/jake}}
-\end{center}
+\noindent
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+\begin{minipage}[t]{0.66\textwidth}
+  \raggedright
+  \textbf{\Huge \scshape \mbox{RAHUL DEIVASIGAMANI}}\\[3pt]
+  \small MSc in Cybersecurity \& AI $|$ CompTIA Security+ $|$ (ISC)\textsuperscript{2} CC
+\end{minipage}
+&  
+\begin{minipage}[t]{0.34\textwidth}\raggedleft
+   \vspace{-15pt} \scriptsize \faPhone\ \href{tel:+31638348300}{+31 6 38348300}\hspace{0.35em}\\\hspace{0.35em}\faEnvelope\ \href{mailto:deiv.rahul@gmail.com}{deiv.rahul@gmail.com} \\
+  \faMapMarker\ Nijmegen, Netherlands \\
+  \faGithub\ \href{https://github.com/b33pb00pb0t}{github.com/b33pb00pb0t} \\
+  \faLinkedin\ \href{https://www.linkedin.com/in/rahuldeiv/}{linkedin.com/in/rahuldeiv/}
+\end{minipage}
+\end{tabular*}
+
+%----PROFILE / SUMMARY ----
+\vspace{8pt}
+\noindent
+\begin{minipage}{\textwidth}
+  \small Master's student specializing in AI Security, with a strong foundation in security principles, deep learning, and cryptography. Passionate about securing large language models (LLMs), researching AI-driven threats and contributing to research-focused roles in the intersection of security and AI.  
+\end{minipage}
+\vspace{1pt}
 
 
 %-----------EDUCATION-----------
 \section{Education}
   \resumeSubHeadingListStart
     \resumeSubheading
-      {Southwestern University}{Georgetown, TX}
-      {Bachelor of Arts in Computer Science, Minor in Business}{Aug. 2018 -- May 2021}
+      {Radboud University}{Nijmegen, Netherlands}
+      {Master of Science in Cybersecurity \& AI \hspace{0.25em}$|$\hspace{0.25em} GPA: 8.5}{Aug 2025 -- Present}
+      \vspace{0.15pt}
+      \resumeSubItem{Relevant courses: Security and Privacy of Machine Learning, Deep Learning, \\ Online Tracking \& Privacy, Applied Cryptography, Advanced Network Security}
+      \vspace{5pt}
+
     \resumeSubheading
-      {Blinn College}{Bryan, TX}
-      {Associate's in Liberal Arts}{Aug. 2014 -- May 2018}
+      {BMS College of Engineering}{Bangalore, India}
+      {Bachelor of Engineering in Electronics and Communication Engineering \hspace{0.25em}$|$\hspace{0.25em} GPA: 8.06}{Aug 2017 -- June 2021}
+    \resumeSubheading
+      {Indian Public School}{Kuwait}
+      {Higher Secondary Education \hspace{0.25em}$|$\hspace{0.25em} GPA: 8.42}{March 2017}
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Kaggle Akkadian Translator: LLM Fine-Tuning \& NLP} $|$ \emph{PyTorch, LLaMA/Tower+, ByT5, PEFT/QLoRA}}{}
+          \resumeItemListStart
+            \resumeItem{Developed a dual-architecture translation pipeline, utilizing Byte-level T5 (ByT5) for character-level parsing and fine-tuning a 9B-parameter LLM (Tower+) via PEFT/QLoRA.}
+            \resumeItem{Engineered memory-efficient distributed inference for a 9B model across resource-constrained GPUs (Dual T4) by implementing CPU offloading, BF16 mixed-precision, and dynamic memory allocation.}
+            \resumeItem{Maximized output robustness against corrupted inputs by building aggressive regex-based data sanitization pipelines and evaluating generations through Hybrid Minimum Bayes Risk (MBR).}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Web Privacy Measurement \& Tracking Analysis} $|$ \emph{Python, Playwright, Web Tracking \& Privacy Analysis}}{}
+          \resumeItemListStart
+            \resumeItem{Designed and implemented a Playwright-based web crawler to measure online tracking and privacy behaviors across 40 international news websites.}
+            \resumeItem{Analyzed HTTP traffic (HAR files), cookies, and headers to quantify tracking intensity and perform a comparative analysis of third-party data sharing and advertising prevalence across US and EU regions.} 
+            \resumeItem{Investigated privacy-relevant HTTP headers (Permissions-Policy, Referrer-Policy, Accept-CH) and identified cross-entity redirects and CNAME-based tracking.}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+%---------CERTIFICATIONS---------
+\section{Certifications}
+  \resumeSubHeadingListStart
+    \resumeSubSubheading{CompTIA Security+}{Issued: July 2023}
+    \resumeSubSubheading{(ISC)\textsuperscript{2} Certified in Cybersecurity (CC)}{Issued: July 2023}
   \resumeSubHeadingListEnd
 
 
@@ -136,12 +188,12 @@
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {Undergraduate Research Assistant}{June 2020 -- Present}
-      {Texas A\&M University}{College Station, TX}
+      {Deloitte Consulting USI}{Aug 2021 -- Aug 2025}
+      {Analyst - SAP ABAP}{Bangalore, India}
       \resumeItemListStart
-        \resumeItem{Developed a REST API using FastAPI and PostgreSQL to store data from learning management systems}
-        \resumeItem{Developed a full-stack web application using Flask, React, PostgreSQL and Docker to analyze GitHub data}
-        \resumeItem{Explored ways to visualize GitHub collaboration in a classroom setting}
+        \resumeItem{Developed and maintained business-critical SAP ABAP code for enterprise-scale SAP systems, adhering to strict software development lifecycle (SDLC) and change control protocols}
+        \resumeItem{Collaborated with global support teams to deliver solutions for projects across diverse geographies}
+        \resumeItem{Performed root-cause analysis for high-priority incidents in production environments, ensuring rapid resolution \\and minimal business disruption}
       \resumeItemListEnd
       
 % -----------Multiple Positions Heading-----------
@@ -154,62 +206,18 @@
 %    \resumeSubHeadingListEnd
 %-------------------------------------------
 
-    \resumeSubheading
-      {Information Technology Support Specialist}{Sep. 2018 -- Present}
-      {Southwestern University}{Georgetown, TX}
-      \resumeItemListStart
-        \resumeItem{Communicate with managers to set up campus computers used on campus}
-        \resumeItem{Assess and troubleshoot computer problems brought by students, faculty and staff}
-        \resumeItem{Maintain upkeep of computers, classroom equipment, and 200 printers across campus}
-    \resumeItemListEnd
-
-    \resumeSubheading
-      {Artificial Intelligence Research Assistant}{May 2019 -- July 2019}
-      {Southwestern University}{Georgetown, TX}
-      \resumeItemListStart
-        \resumeItem{Explored methods to generate video game dungeons based off of \emph{The Legend of Zelda}}
-        \resumeItem{Developed a game in Java to test the generated dungeons}
-        \resumeItem{Contributed 50K+ lines of code to an established codebase via Git}
-        \resumeItem{Conducted  a human subject study to determine which video game dungeon generation technique is enjoyable}
-        \resumeItem{Wrote an 8-page paper and gave multiple presentations on-campus}
-        \resumeItem{Presented virtually to the World Conference on Computational Intelligence}
-      \resumeItemListEnd
-
+  
   \resumeSubHeadingListEnd
-
-
-%-----------PROJECTS-----------
-\section{Projects}
-    \resumeSubHeadingListStart
-      \resumeProjectHeading
-          {\textbf{Gitlytics} $|$ \emph{Python, Flask, React, PostgreSQL, Docker}}{June 2020 -- Present}
-          \resumeItemListStart
-            \resumeItem{Developed a full-stack web application using with Flask serving a REST API with React as the frontend}
-            \resumeItem{Implemented GitHub OAuth to get data from user’s repositories}
-            \resumeItem{Visualized GitHub data to show collaboration}
-            \resumeItem{Used Celery and Redis for asynchronous tasks}
-          \resumeItemListEnd
-      \resumeProjectHeading
-          {\textbf{Simple Paintball} $|$ \emph{Spigot API, Java, Maven, TravisCI, Git}}{May 2018 -- May 2020}
-          \resumeItemListStart
-            \resumeItem{Developed a Minecraft server plugin to entertain kids during free time for a previous job}
-            \resumeItem{Published plugin to websites gaining 2K+ downloads and an average 4.5/5-star review}
-            \resumeItem{Implemented continuous delivery using TravisCI to build the plugin upon new a release}
-            \resumeItem{Collaborated with Minecraft server administrators to suggest features and get feedback about the plugin}
-          \resumeItemListEnd
-    \resumeSubHeadingListEnd
-
-
-
 %
 %-----------PROGRAMMING SKILLS-----------
 \section{Technical Skills}
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
-     \textbf{Languages}{: Java, Python, C/C++, SQL (Postgres), JavaScript, HTML/CSS, R} \\
-     \textbf{Frameworks}{: React, Node.js, Flask, JUnit, WordPress, Material-UI, FastAPI} \\
-     \textbf{Developer Tools}{: Git, Docker, TravisCI, Google Cloud Platform, VS Code, Visual Studio, PyCharm, IntelliJ, Eclipse} \\
-     \textbf{Libraries}{: pandas, NumPy, Matplotlib}
+     \textbf{Languages}{: Python, C++, Bash Scripting, ABAP} \\
+     \textbf{AI \& Machine Learning}{: PyTorch, TensorFlow, HuggingFace (Transformers, PEFT/QLoRA), scikit-learn} \\
+     \textbf{Agentic Automation \& Security}{: OpenClaw, Playwright, ADB (Android Debug Bridge)} \\
+     \textbf{Developer Tools}{: Git, VS Code} \\
+     \textbf{Core Competencies}{: LLM Vulnerability Assessment, Adversarial Robustness, Prompt Injection Analysis}
     }}
  \end{itemize}
 
