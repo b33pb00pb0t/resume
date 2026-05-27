@@ -19,6 +19,7 @@
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \usepackage{graphicx}
+\usepackage{ragged2e}
 \usepackage{fontawesome5}
 \usepackage{iftex}
 % Load glyphtounicode only when using pdfTeX (avoids \pdfglyphtounicode error with XeTeX)
@@ -121,13 +122,16 @@
   \textbf{\Huge \scshape \mbox{RAHUL DEIVASIGAMANI}}\\[3pt]
   \small MSc in Cybersecurity \& AI $|$ CompTIA Security+ $|$ (ISC)\textsuperscript{2} CC
 \end{minipage}
-&  
-\begin{minipage}[t]{0.34\textwidth}\raggedleft
-  \vspace{-15pt} \scriptsize \rotatebox[origin=c]{270}{\faPhone}\ \href{tel:+31638348300}{+31 6 38348300}\hspace{0.35em}\\\hspace{0.35em}\faEnvelope\ \href{mailto:deiv.rahul@gmail.com}{deiv.rahul@gmail.com} \\
-  \faMapMarker\ Nijmegen, Netherlands \\
-  \faGithub\ \href{https://github.com/b33pb00pb0t}{github.com/b33pb00pb0t} \\
-  \faLinkedin\ \href{https://www.linkedin.com/in/rahuldeiv/}{linkedin.com/in/rahuldeiv/}
-\end{minipage}
+&
+\hspace{77pt}\makebox[0.34\textwidth][r]{%
+  \parbox[t]{0.34\textwidth}{\justifying
+    \vspace{-15pt} \scriptsize \hspace{-20pt} \rotatebox[origin=c]{270}{\faPhone}\ \href{tel:+31638348300}{+31 6 38348300}\hspace{0.35em}\\
+    \hspace{0.35em}\faEnvelope\ \href{mailto:deiv.rahul@gmail.com}{deiv.rahul@gmail.com} \\
+    \hspace*{0.1em}\faMapMarker\ Nijmegen, Netherlands \\
+    \faGithub\ \href{https://github.com/b33pb00pb0t}{github.com/b33pb00pb0t} \\
+    \faLinkedin\ \href{https://www.linkedin.com/in/rahuldeiv/}{linkedin.com/in/rahuldeiv/}
+  }
+}
 \end{tabular*}
 
 %----PROFILE / SUMMARY ----
