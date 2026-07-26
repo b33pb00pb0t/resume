@@ -21,6 +21,7 @@
 \usepackage{graphicx}
 \usepackage{ragged2e}
 \usepackage{fontawesome5}
+\pdfmapfile{+fontawesome5.map}
 \usepackage{iftex}
 % Load glyphtounicode only when using pdfTeX (avoids \pdfglyphtounicode error with XeTeX)
 \ifPDFTeX
@@ -148,9 +149,9 @@
   \resumeSubHeadingListStart
     \resumeSubheading
       {Radboud University}{Nijmegen, Netherlands}
-      {Master of Science in Cybersecurity \& AI \hspace{0.25em}$|$\hspace{0.25em} GPA: 8.5}{Aug 2025 -- Present}
+      {Master of Science in Cybersecurity \& AI \hspace{0.25em}$|$\hspace{0.25em} GPA: 8.2}{Aug 2025 -- Present}
     
-      \resumeSubItem{Relevant courses: Security and Privacy of Machine Learning, Deep Learning, \\ Online Tracking \& Privacy, Applied Cryptography, Advanced Network Security}
+      \resumeSubItem{Relevant courses: Security and Privacy of Machine Learning, Deep Learning, \\ Online Tracking \& Privacy, Applied Cryptography, Machine Learning in Practice}
       \vspace{5pt}
 
     \resumeSubheading
@@ -169,14 +170,12 @@
           \resumeItemListStart
             \resumeItem{Developed a dual-architecture translation pipeline, utilizing Byte-level T5 (ByT5) for character-level parsing and fine-tuning a 9B-parameter LLM (Tower+) via PEFT/QLoRA.}
             \resumeItem{Engineered memory-efficient distributed inference for a 9B model across resource-constrained GPUs (Dual T4) by implementing CPU offloading, BF16 mixed-precision, and dynamic memory allocation.}
-            \resumeItem{Maximized output robustness against corrupted inputs by building aggressive regex-based data sanitization pipelines and evaluating generations through Hybrid Minimum Bayes Risk (MBR).}
           \resumeItemListEnd
       \resumeProjectHeading
-          {\textbf{Web Privacy Measurement \& Tracking Analysis} $|$ \emph{Python, Playwright, Web Tracking \& Privacy Analysis}}{}
+          {\textbf{Prompt Injection Analysis on Mobile AI Agents} $|$ \emph{Agentic AI, Prompt Engineering, AI Security}}{}
           \resumeItemListStart
-            \resumeItem{Designed and implemented a Playwright-based web crawler to measure online tracking and privacy behaviors across 40 international news websites.}
-            \resumeItem{Analyzed HTTP traffic (HAR files), cookies, and headers to quantify tracking intensity and perform a comparative analysis of third-party data sharing and advertising prevalence across US and EU regions.} 
-            \resumeItem{Investigated privacy-relevant HTTP headers (Permissions-Policy, Referrer-Policy, Accept-CH) and identified cross-entity redirects and CNAME-based tracking.}
+            \resumeItem{Investigated the security vulnerabilities of Android AI agents (Mobilerun and Mobile-Use) by designing prompt injection attacks that exploit their autonomous reasoning capabilities.}
+            \resumeItem{Designed an attack taxonomy and benchmark across 9 attack pathways, achieving a high Attack Success Rate (ASR) of 82\% on Gemma4 and 54\% on Qwen3.6, highlighting the need for robust security measures in agentic AI.} 
           \resumeItemListEnd
     \resumeSubHeadingListEnd
 
@@ -191,6 +190,14 @@
 %-----------EXPERIENCE-----------
 \section{Experience}
   \resumeSubHeadingListStart
+    
+  \resumeSubheading
+      {Digital Security Group (DiS) @ Radboud University}{July 2026 -- Present}
+      {Research Intern}{Nijmegen, Netherlands}
+        \vspace{0.15pt}      
+      \resumeItemListStart
+        \resumeItem{Conducting research on the security of watermarking techniques used in large language models (LLMs), focusing on the robustness of watermarking techniques against a novel substitution based adversarial attack.}
+      \resumeItemListEnd
 
     \resumeSubheading
       {Deloitte Consulting USI}{Aug 2021 -- Aug 2025}
@@ -201,6 +208,8 @@
         \resumeItem{Collaborated with global support teams to deliver solutions for projects across diverse geographies}
         \resumeItem{Performed root-cause analysis for high-priority incidents in production environments, ensuring rapid resolution \\and minimal business disruption}
       \resumeItemListEnd
+
+
       
 % -----------Multiple Positions Heading-----------
 %    \resumeSubSubheading
@@ -219,7 +228,7 @@
     \small{\item{
      \textbf{Languages}{: Python, C++, Bash Scripting, ABAP} \\
      \textbf{AI \& Machine Learning}{: PyTorch, TensorFlow, HuggingFace (Transformers, PEFT), scikit-learn} \\
-     \textbf{Agentic Automation \& Security}{: OpenClaw, Playwright, ADB (Android Debug Bridge)} \\
+     \textbf{Agentic Automation \& Security}{: OpenClaw, Mobilerun, Mobile-Use, Playwright, ADB (Android Debug Bridge)} \\
      \textbf{Developer Tools}{: Git, VS Code} \\
      \textbf{Core Competencies}{: LLM Vulnerability Assessment, Adversarial Robustness, Prompt Injection Analysis}
     }}
